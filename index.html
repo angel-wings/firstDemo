@@ -1,0 +1,108 @@
+<!-- 体测预约二维码 -->
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="zhenglei">
+        <title>扫码预约</title>
+        <style>
+            body {
+                background: #333333;
+                height: 100%;
+                padding-top: 70px;
+                box-sizing: border-box;
+                margin: 0;
+            }
+    
+            #appointment {
+                background: #ffffff;
+                width: 80%;
+                margin: 0px auto;
+                border-radius: 4px;
+                text-align: center;
+            }
+    
+            #qrcode {
+                width: 80%;
+                text-align: center;
+                margin: 0 auto;
+            }
+    
+            #qrcode>img {
+                width: 100%;
+                margin: 0;
+            }
+    
+            h2 {
+                padding: 22.5px 0 5.5px 0;
+                font-weight: 400;
+                font-size: 15px;
+                color: #333333;
+            }
+    
+            .tips {
+                color: #b2b2b2;
+                display: inline-block;
+                margin-bottom: 13px;
+                font-size: 12px;
+            }
+    
+            .orderCode {
+                color: #333333;
+                display: inline-block;
+                font-size: 13px;
+                margin-top: 13px;
+                margin-bottom: 7px;
+            }
+    
+            .info {
+                color: #b2b2b2;
+                display: inline-block;
+                font-size: 10px;
+                margin-top: 10px;
+                margin-bottom: 12px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="appointment">
+            <h2></h2>
+            <div id="qrcode"></div>
+            <span class="info">扫一扫上面的二维码，进行体育测试预约</span>
+        </div>
+    
+    </body>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./qrcode.js"></script>
+    <script>
+        $(function () {
+            //生成二维码
+            // code("http://h5.gxapp.iydsj.com/gxapp/physicaltest/index.html");
+            code("http://192.168.0.130:8086");
+            // 积分
+            // code("http://192.168.0.130:8089/integral.html");
+            //等级
+            // code("http://192.168.0.130:8089/rank.html");
+            // 赚取积分
+            // code("http://192.168.0.130:8089/points.html");
+            function code(url) {
+                var width = $('#qrcode').width();
+                $('#qrcode').height(width);
+                // 设置参数方式
+                var qrcode = new QRCode('qrcode', {
+                    text: url,
+                    width: 256,
+                    height: 256,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+    
+        })
+    
+    </script>
+    
+    </html>

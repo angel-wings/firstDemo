@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="c" width="400" height="400" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+<script>
+    var canvas = document.getElementById("c");
+    var context = canvas.getContext('2d');
+    function draw(x, y) {
+        y = Math.round(y);
+        context.clearRect(x - 10, 0, 20, canvas.height);
+        context.beginPath();
+        context.arc(x, y, 10, 0, 2 * Math.PI);
+        context.fill();
+    }
+    function doit(x, y) {
+        var tag = "down", t = 0, t1 = 0;
+        setInterval(function () {
+            if (tag === "up") {
+                t1 += (1 / 1000), y = 400 - (980 * 38 * temp * t1 - (1 / 2) * 980 * 38 * t1 * t1);
+                draw(x, y);
+                if (y <= 10) { tag = "down", t1 = 0; };
+            } else if (tag === "down") {
+                t += (1 / 1000), y = (1 / 2) * 980 * 38 * t * t;
+                draw(x, y);
+                if (y >= 390) { tag = "up", temp = t, t = 0; };
+            }
+        }, 1);
+    }
+    var temp2 = 0;
+    for (var i = 1; i < 15; i += 1) {
+        temp2 += 30;
+        setTimeout("doit(" + temp2 + ",0)", 1000 + temp2 * 5);
+    }
+
+</script>
+
+</html>
