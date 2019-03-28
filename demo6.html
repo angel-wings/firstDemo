@@ -58,6 +58,7 @@
             text-align: center;
             cursor: default;
         }
+
         /*无图版样式*/
 
         a.red {
@@ -84,14 +85,13 @@
             background: #D147C5;
             color: #a027C5;
         }
-        /**/
         /*有图版样式
-  a.red{background:url(xmxx_img/red.gif);}
-  a.yel{background:url(xmxx_img/yel.gif);}
-  a.gre{background:url(xmxx_img/gre.gif);}
-  a.blu{background:url(xmxx_img/blu.gif);}
-  a.pur{background:url(xmxx_img/pur.gif);}
-  */
+            a.red{background:url(xmxx_img/red.gif);}
+            a.yel{background:url(xmxx_img/yel.gif);}
+            a.gre{background:url(xmxx_img/gre.gif);}
+            a.blu{background:url(xmxx_img/blu.gif);}
+            a.pur{background:url(xmxx_img/pur.gif);}
+        */
 
         #show {
             padding: 5px;
@@ -104,12 +104,22 @@
 
 <body>
     <div class="box">
-        <div>高分:<input type="text" id="maxRecord" value="0" size=5 /> 分数:<input type="text" id="nowRecord" value="0" size=5 /></div>
-        <div>目标:<input type="text" id="lvlRecord" value="1000" size=5 /> 关卡:<input type="text" id="level" value="1" size=5 /></div>
-        <div><input type="text" id="info" value="" size=20 style="background:none;text-align:center;" /></div>
+        <div>高分:
+            <input type="text" id="maxRecord" value="0" size=5 /> 分数:
+            <input type="text" id="nowRecord" value="0" size=5 />
+        </div>
+        <div>目标:
+            <input type="text" id="lvlRecord" value="1000" size=5 /> 关卡:
+            <input type="text" id="level" value="1" size=5 />
+        </div>
+        <div>
+            <input type="text" id="info" value="" size=20 style="background:none;text-align:center;" />
+        </div>
         <div id="show"></div>
     </div>
-    <div align=center><input type="button" onclick="autodo()" value="自动查找"></div>
+    <div align=center>
+        <input type="button" onclick="autodo()" value="自动查找">
+    </div>
     <div id="test"></div>
 </body>
 <script>
